@@ -33,3 +33,17 @@ app.get('/api/quotes', (req, res) => {
     res.json({ quotes: filteredQuotes });
   });
   
+//to handle saving and retrieving favorite quotes. For simplicity, we will use an in-memory store:
+  const favorites = [];
+
+app.post('/api/favorites', (req, res) => {
+  const { quote } = req.body;
+  if (quote && !favorites.includes(quote)) {
+    favorites.push(quote);
+  }
+  res.json({ favorites });
+});
+
+app.get('/api/favorites', (req, res) => {
+  res.json({ favorites });
+});
