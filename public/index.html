@@ -3,27 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Quotes</title>
+  <title>Random Quote Generator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Random Quote Generator</h1>
-    <input type="text" id="search-input" placeholder="Search quotes">
-    <button id="search-button">Search</button>
-
-    <div id="quote-container">
-      <p id="quote">Click the button to get a quote!</p>
-    </div>
-    <button id="generate-quote">Get Quote</button>
+    <header>
+      <h1>Random Quote Generator</h1>
+    </header>
+    <main>
+      <section id="quote-section">
+        <blockquote id="quote">
+          Click the button to get a quote!
+        </blockquote>
+        <p id="author"></p>
+        <div class="buttons">
+          <button id="generate-quote">Get Quote</button>
+          <button id="save-favorite">Save to Favorites</button>
+        </div>
+      </section>
+      <section id="search-section">
+        <input type="text" id="search-input" placeholder="Search quotes">
+        <select id="category-select">
+          <option value="">All Categories</option>
+          <option value="Inspiration">Inspiration</option>
+          <option value="Life">Life</option>
+          <option value="Wisdom">Wisdom</option>
+          <option value="Motivation">Motivation</option>
+          <option value="Personal Growth">Personal Growth</option>
+        </select>
+        <button id="search-button">Search</button>
+      </section>
+      <section id="favorites-section">
+        <button id="view-favorites">View Favorites</button>
+        <div id="favorites-list"></div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2024 Random Quote Generator. All rights reserved.</p>
+    </footer>
   </div>
-  
-  <div>
-    <button id="save-favorite">Save to Favorites</button>
-<button id="view-favorites">View Favorites</button>
-<div id="favorites-list"></div>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const favoritesList = document.getElementById('favorites-list');
     const searchButton = document.getElementById('search-button');
     const searchInput = document.getElementById('search-input');
+    const categorySelect = document.getElementById('category-select');
   
     button.addEventListener('click', async () => {
       try {
@@ -49,11 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     searchButton.addEventListener('click', async () => {
       const query = searchInput.value;
+      const category = categorySelect.value;
       try {
-        const response = await fetch(`http://localhost:3000/api/quotes?search=${query}`);
+        const response = await fetch(`http://localhost:3000/api/quotes?search=${query}&category=${category}`);
         const data = await response.json();
         if (data.quotes.length > 0) {
-          quoteElement.textContent = data.quotes[0];
+          quoteElement.textContent = data.quotes[0].text + ' - ' + data.quotes[0].author;
         } else {
           quoteElement.textContent = 'No quotes found.';
         }
