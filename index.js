@@ -25,3 +25,11 @@ app.listen(port, () => {
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+//This will allow users to search for quotes containing a specific keyword.
+app.get('/api/quotes', (req, res) => {
+    const search = req.query.search ? req.query.search.toLowerCase() : '';
+    const filteredQuotes = quotes.filter(q => q.toLowerCase().includes(search));
+    res.json({ quotes: filteredQuotes });
+  });
+  
